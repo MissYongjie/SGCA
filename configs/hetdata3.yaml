@@ -1,0 +1,11 @@
+_base_: default.yaml
+
+data:
+  name: hetdata3
+
+optim:
+  epochs: 150
+
+scribble:
+  top_percentage: 0.05   # alpha
+  target_ratio: 0.055    # tau: expected change proportion of the scene

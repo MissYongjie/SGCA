@@ -1,0 +1,41 @@
+# Default SGCA configuration. Dataset configs inherit from this file via `_base_`.
+seed: 0
+
+data:
+  root: data
+  name: hetdata1
+  scribble: scribble.png
+
+model:
+  feature_dim: 64        # channels of the encoder features F^(t)
+  heads: 4               # attention heads
+  downsample_ratio: 8    # pooling factor s of the attention grid
+  gauss_kernel: 11       # kernel size of the adaptive Gaussian smoothing
+  gauss_sigma: 2.0       # initial sigma (learned during training)
+
+loss:
+  margin: 1.0            # m in the separation loss
+  w_con: 1.0             # lambda_con
+  w_sep: 1.0             # lambda_sep
+  w_rec: 1.0             # weight of the self-reconstruction SSIM terms
+  w_cross: 1.0           # weight of the cross-reconstruction SSIM terms
+
+optim:
+  epochs: 150
+  lr: 1.0e-3
+  sigma_lr: 1.0e-2       # learning rate of the Gaussian sigma
+  plateau_factor: 0.8    # ReduceLROnPlateau
+  plateau_patience: 6
+  grad_clip: 1.0
+
+scribble:
+  weight_map_distance: 50       # decay distance of the scribble weight map (attention prior)
+  update_interval: 10           # Delta: epochs between scribble updates
+  target_ratio: 0.2             # stop expanding once coverage reaches this ratio
+  top_percentage: 0.01          # alpha: fraction of candidates added per update
+  aoi_init_kernel: 33           # initial AOI dilation kernel (r_0)
+  aoi_step: 30                  # AOI growth per update (delta)
+  aoi_max_radius: 350           # r_max around the initial scribble
+  candidate_kernel: 33          # dilation kernel used to build the candidate set
+  candidate_dilation_iters: 5
+  background_ignore_radius: 100 # candidates must lie within this radius of annotated pixels

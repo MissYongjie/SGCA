@@ -1,0 +1,18 @@
+_base_: default.yaml
+
+data:
+  name: hetdata4
+
+model:
+  gauss_sigma: 1.0
+
+optim:
+  epochs: 200
+  lr: 1.0e-4
+  sigma_lr: 1.0e-3
+  plateau_factor: 0.5
+  plateau_patience: 3
+
+scribble:
+  top_percentage: 0.02   # alpha
+  target_ratio: 0.06     # tau: expected change proportion of the scene

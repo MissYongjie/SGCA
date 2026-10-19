@@ -1,0 +1,15 @@
+_base_: default.yaml
+
+data:
+  name: hetdata5
+
+optim:
+  epochs: 200
+  lr: 1.0e-4
+  sigma_lr: 1.0e-3
+
+scribble:
+  top_percentage: 0.3    # alpha
+  target_ratio: 0.16     # tau: expected change proportion of the scene
+  candidate_kernel: 7    # local region growing: candidates only next to current scribbles
+  candidate_dilation_iters: 1

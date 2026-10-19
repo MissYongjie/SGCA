@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "SGCA: A Scribble-Guided Cross-Attention Framework for Multimodal Remote Sensing Change Detection"
+repository-code: "https://github.com/MissYongjie/SGCA"
+license: MIT
+authors:
+  - {family-names: Zheng, given-names: Yongjie}
+  - {family-names: Liu, given-names: Hao}
+  - {family-names: Guo, given-names: Houcai}
+  - {family-names: Liu, given-names: Sicong}
+  - {family-names: Bruzzone, given-names: Lorenzo}
+preferred-citation:
+  type: article
+  title: "SGCA: A Scribble-Guided Cross-Attention Framework for Multimodal Remote Sensing Change Detection"
+  journal: "ISPRS Journal of Photogrammetry and Remote Sensing"
+  volume: 235
+  start: 416
+  end: 427
+  year: 2026
+  doi: "10.1016/j.isprsjprs.2026.03.015"
+  authors:
+    - {family-names: Zheng, given-names: Yongjie}
+    - {family-names: Liu, given-names: Hao}
+    - {family-names: Guo, given-names: Houcai}
+    - {family-names: Liu, given-names: Sicong}
+    - {family-names: Bruzzone, given-names: Lorenzo}

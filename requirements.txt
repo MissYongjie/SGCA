@@ -1,0 +1,10 @@
+torch>=1.12
+numpy
+scipy
+opencv-python
+scikit-image
+imageio
+pytorch-msssim
+pyyaml
+matplotlib
+pillow
