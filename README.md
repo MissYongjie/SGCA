@@ -78,45 +78,20 @@ pip install -r requirements.txt
 
 ## Data
 
-The six heterogeneous datasets used in the paper are included in [`data/`](data/), each with the
-scribbles used in our experiments:
-
-| Folder | Dataset | Sensors | Size (pixels) | Location | Event |
-|---|---|---|---|---|---|
-| `hetdata1` | HetData #1 | Spot / NDVI | 990 × 554 | Gloucester, England | Flooding |
-| `hetdata2` | HetData #2 | Radarsat-2 / Google Earth | 343 × 291 | Yellow River, China | Embankment change |
-| `hetdata3` | HetData #3 | QuickBird 2 / TerraSAR-X | 1034 × 582 | Gloucester, England | Flooding |
-| `hetdata4` | HetData #4 | Landsat-5 / Google Earth | 300 × 412 | Sardinia, Italy | Lake expansion |
-| `hetdata5` | HetData #5 | Pleiades / WorldView-2 | 500 × 500 | Toulouse, France | Construction |
-| `hetdata6` | HetData #6 | Radarsat-2 / Google Earth | 593 × 921 | Shuguang Village, China | Building construction |
-
-Each folder contains `t1.png`, `t2.png`, `gt.png` and `scribble.png`. See [`data/README.md`](data/README.md)
-for how to add your own image pairs.
+Put the datasets in [`data/`](data/), one folder per image pair containing `t1.png`, `t2.png`,
+`gt.png` and `scribble.png` (e.g. `data/hetdata1/`). The six datasets used in the paper are already included.
 
 ## Usage
 
-Run SGCA on one dataset:
-
 ```bash
+# one dataset
 python tools/train.py --config configs/hetdata1.yaml
-```
 
-Run all six datasets and print the accuracy table:
-
-```bash
+# all six datasets
 bash scripts/run_all.sh
 ```
 
-Outputs are written to `work_dirs/<dataset>/`: `change_map.png` (binary change map), `distance_map.png`
-(change intensity map), `error_map.png` and `metrics.json` (OA, Kappa, F1, run time).
-
-Common options:
-
-```bash
-python tools/train.py --config configs/hetdata1.yaml --device cpu             # run on CPU
-python tools/train.py --config configs/hetdata1.yaml --save-intermediate      # save maps at every scribble update
-python tools/train.py --config configs/hetdata1.yaml --opts optim.epochs=200  # override any config entry
-```
+Results (change maps, error maps and OA / Kappa / F1) are saved to `work_dirs/<dataset>/`.
 
 ## Citation
 
