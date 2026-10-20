@@ -6,4 +6,4 @@ cd "$(dirname "$0")/.."
 for i in 1 2 3 4 5 6; do
   python -u tools/train.py --config configs/hetdata${i}.yaml "$@"
 done
-python tools/summarize.py results
+python tools/summarize.py work_dirs

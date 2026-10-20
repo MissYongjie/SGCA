@@ -1,7 +1,7 @@
 """Collect ``metrics.json`` files under a results folder into a Markdown table next to the paper numbers.
 
 Example:
-    python tools/summarize.py results
+    python tools/summarize.py work_dirs
 """
 import glob
 import json
@@ -19,7 +19,7 @@ PAPER = {
 }
 
 
-def main(root: str = "results"):
+def main(root: str = "work_dirs"):
     print("| Dataset | OA | Kappa | F1 | Time (s) | Paper OA / Kappa / F1 | ΔF1 |")
     print("|---|---|---|---|---|---|---|")
     for path in sorted(glob.glob(os.path.join(root, "*", "metrics.json"))):

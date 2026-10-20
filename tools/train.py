@@ -29,7 +29,7 @@ def parse_args():
     p = argparse.ArgumentParser(description="SGCA training / evaluation")
     p.add_argument("--config", required=True, help="path to a YAML config in configs/")
     p.add_argument("--data-root", default=None, help="override data.root")
-    p.add_argument("--work-dir", default=None, help="output directory (default: results/<dataset>)")
+    p.add_argument("--work-dir", default=None, help="output directory (default: work_dirs/<dataset>)")
     p.add_argument("--seed", type=int, default=None, help="override the config seed")
     p.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     p.add_argument("--save-intermediate", action="store_true",
@@ -59,7 +59,7 @@ def main():
     device = torch.device(args.device)
 
     pair = load_pair(cfg["data"]["root"], cfg["data"]["name"], cfg["data"].get("scribble", "scribble.png"))
-    work_dir = args.work_dir or os.path.join("results", pair.name)
+    work_dir = args.work_dir or os.path.join("work_dirs", pair.name)
     os.makedirs(work_dir, exist_ok=True)
     if args.save_intermediate:
         os.makedirs(os.path.join(work_dir, "train_vis"), exist_ok=True)
