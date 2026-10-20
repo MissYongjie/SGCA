@@ -56,23 +56,14 @@ The change maps of all compared methods are in [`assets/comparison/`](assets/com
 
 ## Installation
 
-Core dependencies:
-
-| Package | Version used |
-|---|---|
-| Python | 3.10 |
-| PyTorch | 2.2 (CUDA 12.1) |
-| pytorch-msssim | 1.0 |
-| opencv-python | 4.x |
-| scikit-image | 0.24 |
-| scipy, numpy, imageio, pyyaml, matplotlib, pillow | – |
+Tested with Python 3.10, PyTorch 2.2 and CUDA 12.1.
 
 ```bash
 git clone https://github.com/MissYongjie/SGCA.git
 cd SGCA
 conda create -n sgca python=3.10 -y
 conda activate sgca
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121   # choose the build matching your CUDA
+pip install torch==2.2.0 torchvision==0.17.0 --index-url https://download.pytorch.org/whl/cu121
 pip install -r requirements.txt
 ```
 
